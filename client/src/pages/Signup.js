@@ -36,7 +36,6 @@ const Signup = () => {
 
       Auth.login(data.addUser.token, data.addUser.user._id);
     } catch (error) {
-      console.log(error);
     };
   };
 
@@ -45,49 +44,71 @@ const Signup = () => {
       {data ? (
         <p variant='subtitle1'>Successfully created an account. You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
-        <section class="hero is-primary is-fullheight">
-          <div class="hero-body">
-            <div class="container">
-              <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                  <form action="" class="box">
-                    <div class="field">
-                      <label for="" class="label">Username</label>
-                      <div class="control has-icons-left">
-                        <input type="text" placeholder="Enter a Username" class="input" required />
-                        <span class="icon is-small is-left">
-                          <i class="fa fa-envelope"></i>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="field select">
-                      <label>Breed</label>
-                      <select>
-                        <option>Select a breed</option>
-                        <option>Snoopy</option>
-                        <option>Clifford</option>
-                      </select>
-                    </div>
-                    <div class="field">
-                      <label for="" class="label">Password</label>
-                      <div class="control has-icons-left">
-                        <input type="password" placeholder="Enter a Password" class="input" required />
-                        <span class="icon is-small is-left">
-                          <i class="fa fa-lock"></i>
-                        </span>
-                      </div>
-                    </div>
-                    <div class="field">
-                      <button class="button is-success">
-                        Create Profile
-                      </button>
-                    </div>
-                  </form>
-                </div>
+<section className="hero is-info is-fullheight">
+  <div className="hero-body is-justify-content-center">
+    <div className="tile is-ancestor">
+      <div className="tile is-vertical">
+        <div className="tile is-child box box-shadow">
+          <form onSubmit={handleFormSubmit} className="box signup-form">
+            <div className="field">
+              <label for="" className="label">Username</label>
+              <div className="control has-text-centered">
+              <input
+              placeholder='Username'
+              name='username'
+              type='text'
+              value={formState.username}
+              onChange={handleChange}
+            />              </div>
+            </div>
+            <div className="field">
+              <label for="" className="label">Email</label>
+              <div className="control has-text-centered">
+              <input
+              placeholder='Email@Example.com'
+              name='email'
+              type='text'
+              value={formState.email}
+              onChange={handleChange}
+            />           </div>
+            </div>
+             <div className="field">
+              <label for="" className="label">Breed</label>
+              <div className="control has-text-centered">
+              <input
+              placeholder='Breed'
+              name='breed'
+              type='text'
+              value={formState.breed}
+              onChange={handleChange}
+            />           
+
               </div>
             </div>
-          </div>
-        </section>
+            <div className="field">
+              <label for="" class="label">Password</label>
+              <div className="control has-text-centered">
+              <input
+              placeholder='Password'
+              name='password'
+              type='password'
+              value={formState.password}
+              onChange={handleChange}
+            />            
+
+              </div>
+            </div>
+            <div  className="field">
+              <button className="button is-info" type="submit">
+                Signup
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       )}
       {error && (
         <div>

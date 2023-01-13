@@ -13,56 +13,6 @@ export const ADD_USER = gql`
 }
 `;
 
-export const ADD_COURSE = gql`
-  mutation addCourse($courseName: String!, $startDate: String!, $endDate: String!, $description: String!) {
-  addCourse(courseName: $courseName, startDate: $startDate, endDate: $endDate, description: $description) {
-    _id
-    courseName
-    startDate
-    endDate
-    description
-    instructor
-  }
-}
-`;
-
-export const ADD_STUDENT = gql`
-  mutation addStudent($firstName: String!, $lastName: String!, $course: String!) {
-  addStudent(firstName: $firstName, lastName: $lastName, course: $course) {
-    _id
-    firstName
-    lastName
-    course
-  }
-}
-`;
-
-export const ADD_ASSIGNMENT = gql`
-  mutation addAssignment($assignmentName: String!, $grade: Int, $studentId: String) {
-  addAssignment(assignmentName: $assignmentName, grade: $grade, studentId: $studentId) {
-    assignmentName
-    grade
-  }
-}
-`;
-
-export const UPDATE_ASSIGNMENT = gql`
-  mutation updateAssignment($assignmentId: String!, $newGrade: Int) {
-  updateAssignment(assignmentId: $assignmentId, newGrade: $newGrade) {
-    assignmentName
-    grade
-  }
-}
-`;
-
-export const DELETE_ASSIGNMENT = gql`
-  mutation deleteAssignment($assignmentId: String!, $studentId: String) {
-  deleteAssignment(assignmentId: $assignmentId, studentId: $studentId) {
-    course
-  }
-}
-`;
-
 export const LOGIN_USER = gql`
  mutation login($breed: String!, $password: String!) {
   login(breed: $breed, password: $password) {
@@ -71,6 +21,43 @@ export const LOGIN_USER = gql`
       _id
       username
       breed
+    }
+  }
+}
+`;
+
+export const ADD_PROFILE = gql`
+mutation Mutation($name: String, $aboutMe: String, $img: String, $originalUser: String) {
+  addProfile(name: $name, aboutMe: $aboutMe, img: $img, originalUser: $originalUser) {
+    _id
+    aboutMe
+    img
+    name
+    originalUser
+    posts {
+      _id
+      createdAt
+      postAuthor
+      postText
+    }
+  }
+}
+`;
+
+
+
+export const ADD_POST = gql`
+mutation Mutation($profileId: ID!, $postText: String!) {
+  addPosts(profileId: $profileId, postText: $postText) {
+    _id
+    name
+    originalUser
+    aboutMe
+    img
+    posts {
+      _id
+      postText
+      createdAt
     }
   }
 }

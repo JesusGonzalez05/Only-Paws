@@ -1,17 +1,99 @@
-.profile-page{
+/* Nav Component */
+.signup-links{
+display: flex;
+flex-direction: row;  
+justify-content: space-evenly;
+}
+.sign-up{
+padding: .25rem;
+}
+.login{
+padding: .25rem;
+}
+
+/* Home page */
+#home-container{
+height: 50vh;
+width: 100vw;
+position: absolute;
+overflow: hidden;
+z-index: 100;
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 3rem;
+align-items: flex-end;
+}
+.hero-body{
+background-image: url('./components/pexels-pixabay-247522.jpg');
+background-size: cover;
+}
+.overlay{
+background-color: rgb(67, 67, 67, .7);
+}
+
+
+/* landing.js */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+.landing-page{
 background-color: #F0EAD6;
 height: 100vh;
 width: 100vw;
-overflow: hidden;
 }
-.bio-container{
+.landing-tile-container{
 display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-height: 300px;
+justify-content: center;
+/* margin-top: 14rem !important; */
+}
+.landing-tile{
+align-self: center!;
+font-family: 'Ubuntu', sans-serif;
+;
+}
+.landing-h1{
+color:black;
+}
+
+/* Dashboard */
+.profile-container{
+height: 100vh;
 width: 100vw;
-/* background-color: black; */
+background-image: url(./components/Shepard.jpg);
+background-size: cover;
+}
+.overlay2{
+background-color: rgb(67, 67, 67, .7);
+}
+
+
+
+
+
+/* login.js */
+.login-tile-container{
+display: flex;
+justify-content: center;
+}
+/* Sign-up */
+.tile{
+flex-grow: 0;
+}
+
+/* margin-top: 14rem !important; */
+
+
+/* create a profile page */
+.about-me-input{
+    resize: both;
+}
+
+/* profile.js */
+.profile-bg{
+background-image: url(./components/Paw.jpg);
+background-size: cover;
+}
+.profile-card{
+width: 50%;
 }
 .profile-photo-container{
 height: 275px;

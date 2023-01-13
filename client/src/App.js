@@ -8,23 +8,32 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Auth from './utils/auth';
-
 /// ADDED BULMA /// 
 import 'bulma/css/bulma.min.css';
+import './App.css';
+
 
 
 /// IMPORT PAGES ///
-import Landing from './pages/Landing';
+import Home from './pages/Home';
+// ^ main page that says welcome to only paws - our branding page
 import Signup from './pages/Signup';
+// ^ page that allows user to sign up
 import Login from './pages/Login';
+// ^ page that allows a returning user to login
 import Dashboard from './pages/Dashboard';
+// ^ once user is logged in this is where user will see posts 
 import Profile from './pages/Profile';
+// ^ where user can acess their profile / edit it 
+import CreateProfileForm from './pages//createProfile';
+// ^ user is directed to this page when they first sign up 
+// import SinglePost from './pages/SinglePost';
+// ^ page/ modal where user can create a post
 
-/// IMPORT COMPONENTS ///
-import ProtectRoute from './components/ProtectRoute';
+// import components
+// import Footer from "./components/Footer";
+import Navbar from "./components/Nav/Navbar";
 
-import './App.css';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -64,16 +73,17 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <Navbar/>
         <Routes>
-          <Route path='/' element={<Landing />} />
+          <Route path='/' element={<Home />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/login' element={<Login />} />
-          <Route
-            path='dashboard/:userId'
-            element={Auth.loggedIn() ? <Dashboard /> : <ProtectRoute />}
-          />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/createprofile' element={<CreateProfileForm />} />
+          <Route path='/profile/:profileId' element={<Profile />} />
+          {/* <Route path="/post"  element={<SinglePost />} /> */}
         </Routes>
+        {/* <Footer/> */}
       </Router>
     </ApolloProvider>
   );

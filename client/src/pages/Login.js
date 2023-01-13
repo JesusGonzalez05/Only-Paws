@@ -7,7 +7,7 @@ import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   /// HANDLE CHANGE ///
@@ -35,7 +35,7 @@ const Login = (props) => {
     }
 
     setFormState({
-      username: '',
+      email: '',
       password: '',
     });
   };
@@ -45,38 +45,49 @@ const Login = (props) => {
       {data ? (
         <p>Successfully logged in! You may now head{' '}<Link to='/'>back to the hompage.</Link></p>
       ) : (
-        <section class="hero is-primary is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-          <form action="" class="box">
-            <div class="field">
-              <label for="" class="label">Username</label>
-              <div class="control has-icons-left">
-                <input type="text" placeholder="Username" class="input" required/>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-envelope"></i>
+
+
+<section className="hero is-info is-fullheight">
+  <div className="hero-body is-justify-content-center">
+    <div className="tile is-ancestor">
+      <div className="tile is-vertical">
+        <div className="tile is-child box box-shadow">
+          <form onSubmit={handleFormSubmit} className="box login-form">
+            <div className='has-text-centered m-4'>
+              <h1>Welcome back!</h1>
+            </div>
+            <div className="field">
+              <label for="" className="label">Email</label>
+              <div className="control has-icons-left">
+              <input
+              placeholder='Email'
+              name='email'
+              type='email'
+              value={formState.email}
+              onChange={handleChange}
+            />               
+             <span className="icon is-small is-left">
+                  <i className="fa fa-envelope" aria-hidden="true"></i>
                 </span>
               </div>
             </div>
-            <div class="field">
+            <div className="field">
               <label for="" class="label">Password</label>
-              <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required/>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-lock"></i>
+              <div className="control has-icons-left">
+              <input
+              placeholder='Password'
+              name='password'
+              type='password'
+              value={formState.password}
+              onChange={handleChange}
+            />                
+            <span className="icon is-small is-left">
+                  <i className="fa fa-lock"></i>
                 </span>
               </div>
             </div>
-            <div class="field">
-              <label for="" class="checkbox">
-                <input type="checkbox"/>
-               Remember me
-              </label>
-            </div>
-            <div class="field">
-              <button class="button is-success">
+            <div className="field">
+              <button className="button is-info">
                 Login
               </button>
             </div>
@@ -86,6 +97,7 @@ const Login = (props) => {
     </div>
   </div>
 </section>
+
       )}
       {error && (
         <div>{error.message}</div>
