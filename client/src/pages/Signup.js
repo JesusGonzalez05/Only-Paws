@@ -72,19 +72,6 @@ const Signup = () => {
               onChange={handleChange}
             />           </div>
             </div>
-             <div className="field">
-              <label for="" className="label">Breed</label>
-              <div className="control has-text-centered">
-              <input
-              placeholder='Breed'
-              name='breed'
-              type='text'
-              value={formState.breed}
-              onChange={handleChange}
-            />           
-
-              </div>
-            </div>
             <div className="field">
               <label for="" class="label">Password</label>
               <div className="control has-text-centered">
