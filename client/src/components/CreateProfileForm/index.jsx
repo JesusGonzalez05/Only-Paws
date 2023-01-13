@@ -33,7 +33,7 @@ const CreateProfileForm = () => {
             variables: { ...formState },
         });
         // make this link take user to a page where it displays all of the users profiles they have created - instead of sign up page
-         window.location.href = `/signup`
+         window.location.href = `/dashboard`
 
         } catch (err) {
         console.error(err);
