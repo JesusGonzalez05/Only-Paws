@@ -31,6 +31,8 @@ background-size: cover;
 .overlay{
 background-color: rgb(67, 67, 67, .7);
 }
+
+
 /* landing.js */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
 .landing-page{
@@ -52,6 +54,21 @@ font-family: 'Ubuntu', sans-serif;
 color:black;
 }
 
+/* Dashboard */
+.profile-container{
+height: 100vh;
+width: 100vw;
+background-image: url(./components/Shepard.jpg);
+background-size: cover;
+}
+.overlay2{
+background-color: rgb(67, 67, 67, .7);
+}
+
+
+
+
+
 /* login.js */
 .login-tile-container{
 display: flex;
@@ -71,20 +88,12 @@ flex-grow: 0;
 }
 
 /* profile.js */
-.profile-page{
-background-color: #F0EAD6;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+.profile-bg{
+background-image: url(./components/Paw.jpg);
+background-size: cover;
 }
-.bio-container{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start;
-height: 300px;
-width: 100vw;
-/* background-color: black; */
+.profile-card{
+width: 50%;
 }
 .profile-photo-container{
 height: 275px;
