@@ -48,10 +48,6 @@ Dashboard page
 Profile page
 <img width="1440" alt="Screenshot 2023-01-12 at 6 54 59 PM" src="https://user-images.githubusercontent.com/98119774/212239536-cbd286d0-551c-4091-8fd6-acf12a304ffc.png">
 
-
-
-
-
 ## Questions
 If you have any questions regarding this project, reach out to us via these links:
 * [Jesus Gonzalez](https://github.com/jesusgonzalez05)<br>
